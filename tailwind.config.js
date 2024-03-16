@@ -8,9 +8,13 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'custom-radial': 
+          `radial-gradient(circle at 20% 30%, rgba(156, 200, 255, 0.5) 0%, rgba(255, 255, 255, 0) 70%), 
+          radial-gradient(circle at 80% 70%, rgba(0, 0, 255, 0.3) 0%, rgba(0, 0, 255, 0) 80%)`
+      },
+      container: {
+        padding: "2rem",
+        center: true,
       },
     },
   },
