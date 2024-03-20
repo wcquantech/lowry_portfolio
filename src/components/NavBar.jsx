@@ -27,7 +27,7 @@ const NavBar = () => {
   }, [lastScrollY]);
 
   return (
-    <nav className={`fixed z-50 h-16 p-5 mb-3 w-screen flex items-center justify-between border-b border-gray-200 bg-white bg-opacity-60 backdrop-blur-sm transition-all duration-300 ${visible ? "top-0" : "top-[-100%]"}`}>
+    <nav className={`fixed z-10 h-16 p-5 mb-3 w-screen flex items-center justify-between border-b border-gray-200 bg-white bg-opacity-60 backdrop-blur-sm transition-all duration-300 ${visible ? "top-0" : "top-[-100%]"}`}>
       <Link href="/" className="text-2xl font-bold cursor-pointer select-none hover:transform hover:scale-105 duration-200 link-animation">LOWRY WONG</Link>
 
       {/* Desktop or Large Screen Navigation */}
