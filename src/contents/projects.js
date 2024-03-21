@@ -10,11 +10,11 @@ const projects = [
     github_url: "",
     external_url: "",
     screenshots: [
-      { id: 1, url: "assets/images/easy_logistics/image_1.png" },
-      { id: 2, url: "assets/images/easy_logistics/image_2.png" },
-      { id: 3, url: "assets/images/easy_logistics/image_3.png" },
-      { id: 4, url: "assets/images/easy_logistics/image_4.png" },
-      { id: 5, url: "https://youtu.be/_ESfWyyb4jc" }
+      { id: 1, url: "assets/images/easy_logistics/image_1.png", type: "image" },
+      { id: 2, url: "assets/images/easy_logistics/image_2.png", type: "image" },
+      { id: 3, url: "assets/images/easy_logistics/image_3.png", type: "image" },
+      { id: 4, url: "assets/images/easy_logistics/image_4.png", type: "image" },
+      { id: 5, url: "https://youtu.be/_ESfWyyb4jc", type: "video" }
     ],
     createdAt: "07/2023",
   },
@@ -27,10 +27,10 @@ const projects = [
     github_url: "https://github.com/wcquantech/arithmetic_game",
     external_url: "https://wcquantech.github.io/arithmetic_game/",
     screenshots: [
-      { id: 1, url: "assets/images/arithmetic_game/image_1.png" },
-      { id: 2, url: "assets/images/arithmetic_game/image_2.png" },
-      { id: 3, url: "assets/images/arithmetic_game/image_3.png" },
-      { id: 4, url: "https://youtu.be/IUggiGApBVc" }
+      { id: 1, url: "assets/images/arithmetic_game/image_1.png", type: "image" },
+      { id: 2, url: "assets/images/arithmetic_game/image_2.png", type: "image" },
+      { id: 3, url: "assets/images/arithmetic_game/image_3.png", type: "image" },
+      { id: 4, url: "https://youtu.be/IUggiGApBVc", type: "video" }
     ],
     createdAt: "02/2024"
   },
@@ -43,9 +43,9 @@ const projects = [
     github_url: "",
     external_url: "https://desolate-hamlet-01034-a86b0d0a8c18.herokuapp.com",
     screenshots: [
-      { id: 1, url: "assets/images/glitch_classifier/image_1.png" },
-      { id: 2, url: "assets/images/glitch_classifier/image_2.png" },
-      { id: 3, url: "assets/images/glitch_classifier/image_3.png" },
+      { id: 1, url: "assets/images/glitch_classifier/image_1.png", type: "image" },
+      { id: 2, url: "assets/images/glitch_classifier/image_2.png", type: "image" },
+      { id: 3, url: "assets/images/glitch_classifier/image_3.png", type: "image" },
     ],
     createdAt: "03/2024"
   },
@@ -58,7 +58,7 @@ const projects = [
     github_url: "",
     external_url: "",
     screenshots: [
-      { id: 1, url: "assets/images/personal_portfolio/image_1.png" }
+      { id: 1, url: "assets/images/personal_portfolio/image_1.png", type: "image" }
     ],
     createdAt: "03/2024"
   }
