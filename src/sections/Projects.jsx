@@ -27,7 +27,7 @@ const Projects = () => {
     return () => {
       projectCards.forEach(card => projectObserver.unobserve(card));
     }  
-  }, [])
+  }, [numProjects])
 
 
 
