@@ -43,7 +43,7 @@ return (
         <textarea name="message" placeholder="Message" className="rounded-2xl p-2 h-48 resize-none focus:ring-indigo-600" required></textarea>
         <button
           type="submit"
-          className="bg-white font-semibold text-sm sm:text-base px-4 py-2 mx-20 sm:mx-32 rounded-md text-indigo-600 border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white active:transform active:scale-90 duration-200 flex items-center justify-center gap-1">
+          className="bg-indigo-600 font-semibold text-sm sm:text-base px-4 py-2 rounded-md text-white border border-gray-200 dark:border-gray-700 hover:bg-indigo-800 hover:text-white active:transform active:scale-90 duration-200 flex items-center justify-center gap-1">
             <span>Submit</span>
             <span className="material-symbols-outlined">send</span>
           </button>

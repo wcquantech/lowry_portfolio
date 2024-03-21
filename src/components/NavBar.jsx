@@ -1,11 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 const NavBar = () => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
 
   // Hide Navbar on Scroll Down
   useEffect(() => {
@@ -27,8 +29,8 @@ const NavBar = () => {
   }, [lastScrollY]);
 
   return (
-    <nav className={`fixed z-10 h-16 p-5 mb-3 w-screen flex items-center justify-between border-b border-gray-200 bg-white bg-opacity-60 backdrop-blur-sm transition-all duration-300 ${visible ? "top-0" : "top-[-100%]"}`}>
-      <Link href="/" className="text-2xl font-bold cursor-pointer select-none hover:transform hover:scale-105 duration-200 link-animation">LOWRY WONG</Link>
+    <nav className={`fixed z-10 h-16 p-5 mb-3 w-screen flex items-center justify-between border-b border-gray-200 bg-white bg-opacity-60 dark:bg-slate-700 dark:border-gray-600 backdrop-blur-sm transition-all duration-300 ${visible ? "top-0" : "top-[-100%]"}`}>
+      <Link href="/" className={`text-2xl font-bold cursor-pointer select-none hover:transform hover:scale-105 duration-200 ${resolvedTheme === "light" ? "link-animation" : "link-animation-dark"}`}>LOWRY WONG</Link>
 
       {/* Desktop or Large Screen Navigation */}
       <div className="hidden items-center space-x-4 sm:flex">
@@ -50,8 +52,21 @@ const NavBar = () => {
         >
           Contact
         </Link>
-        <span className="material-symbols-outlined cursor-pointer rounded-md duration-200 hover:text-indigo-600 transform hover:scale-105">dark_mode</span>
-        <Link href="https://github.com/wcquantech" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github-mark.svg" alt="github icon" className="w-5 h-5 hover:fill-indigo-600 cursor-pointer duration-200 transform hover:scale-105 " /></Link>
+        {resolvedTheme === "light" ? (
+              <span
+                onClick={() => setTheme("dark")} 
+                className="material-symbols-outlined cursor-pointer p-2 rounded-md duration-200 hover:text-indigo-600 transform hover:scale-105">
+                  dark_mode
+              </span>
+            ) : (
+              <span
+                onClick={() => setTheme("light")} 
+                className="material-symbols-outlined cursor-pointer p-2 rounded-md duration-200 hover:text-indigo-600 transform hover:scale-105">
+                  light_mode
+              </span>
+            )
+        }
+        <Link href="https://github.com/wcquantech" target="_blank" rel="noopener noreferrer"><img src={`assets/icons/github-mark${resolvedTheme === "light" ? "" : "-white"}.svg`} alt="github icon" className="w-5 h-5 hover:fill-indigo-600 cursor-pointer duration-200 transform hover:scale-105" /></Link>
       </div>
 
       {/* Mobile Navigation */}
@@ -63,7 +78,7 @@ const NavBar = () => {
         </span>
         {/* Dropdown Menu */}
         <div 
-          className={`text-xl absolute right-0 mt-4 p-3 flex-col items-end gap-2 bg-white bg-opacity-90 rounded-lg shadow-md w-44 ${isMenuOpen ? "flex" : "hidden"}`}
+          className={`text-xl absolute right-0 mt-4 p-3 flex-col items-end gap-2 bg-white dark:bg-slate-800 bg-opacity-90 dark:bg-opacity-90 rounded-lg shadow-md w-44 ${isMenuOpen ? "flex" : "hidden"}`}
         >
           <Link 
             href="#about" 
@@ -81,15 +96,27 @@ const NavBar = () => {
           </Link>
           <Link 
             href="#contact" 
-            className="w-full rounded-md p-2 hover:text-indigo-600 text-end active:transform active:scale-95 duration-200 border-b" 
+            className="w-full p-2 hover:text-indigo-600 text-end active:transform active:scale-95 duration-200 border-b" 
             onClick={() => setIsMenuOpen(false)}
           >
             Contact
           </Link>
           {/* Theme Switch and GitHub Buttons */}
           <div className="flex justify-end items-center gap-2">
-            <span className="material-symbols-outlined cursor-pointer p-2 rounded-md duration-200 hover:text-indigo-600 transform hover:scale-105">dark_mode</span>
-            <Link href="https://github.com/wcquantech" target="_blank" rel="noopener noreferrer"><img src="assets/icons/github-mark.svg" alt="github icon" className="w-5 h-5 hover:fill-indigo-600 cursor-pointer duration-200 transform hover:scale-105 " /></Link>
+            {resolvedTheme === "light" ? (
+              <span
+                onClick={() => setTheme("dark")} 
+                className="material-symbols-outlined cursor-pointer p-2 rounded-md duration-200 hover:text-indigo-600 transform hover:scale-105">
+                  dark_mode
+              </span>
+            ) : (
+              <span
+                onClick={() => setTheme("light")} 
+                className="material-symbols-outlined cursor-pointer p-2 rounded-md duration-200 hover:text-indigo-600 transform hover:scale-105">
+                  light_mode
+              </span>
+            )}
+            <Link href="https://github.com/wcquantech" target="_blank" rel="noopener noreferrer"><img src={`assets/icons/github-mark${resolvedTheme === "light" ? "" : "-white"}.svg`} alt="github icon" className="w-5 h-5 hover:fill-indigo-600 cursor-pointer duration-200 transform hover:scale-105 " /></Link>
           </div>
         </div>
       </div>

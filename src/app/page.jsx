@@ -3,7 +3,6 @@ import About from "@/sections/About";
 import Welcome from "@/sections/Welcome";
 import Projects from "@/sections/Projects";
 import Contact from "@/sections/Contact";
-import ImagesModal from "@/components/ImagesModal";
 import { useEffect } from "react";
 
 export default function Home() {
