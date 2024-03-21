@@ -40,7 +40,7 @@ const projects = [
     description: "A web app that enables users to upload gravitational wave signal files and classifies them into one of the 23 glitch classes using deep learning image classification models. This web app was initially developed as part of my final year college project but the UI has been recently re-created.",
     stack: ["Python", "PyTorch", "Dash", "HTML", "CSS", "Heroku"],
     category: "Personal Project",
-    github_url: "",
+    github_url: "https://github.com/wcquantech/dash-glitch-classifier",
     external_url: "https://desolate-hamlet-01034-a86b0d0a8c18.herokuapp.com",
     screenshots: [
       { id: 1, url: "assets/images/glitch_classifier/image_1.png", type: "image" },

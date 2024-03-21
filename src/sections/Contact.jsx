@@ -1,27 +1,38 @@
 "use client";
+import { useState } from "react";
 
 const Contact = () => {
+  const [messageState, setMessageState] = useState("");
+
   // Implementing Web3Forms to handle email messages
   async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    try {
+      const formData = new FormData(event.target);
 
-    formData.append("access_key", process.env.WEB3FORM_ACCESS_KEY);
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: json
-    });
-    const result = await response.json();
-    if (result.success) {
-      console.log(result);
+      formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORM_ACCESS_KEY);
+  
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+  
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
+      const result = await response.json();
+      if (result.success) {
+        console.log(result);
+        setMessageState("success");
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      setMessageState("error");
     }
   }
 
@@ -46,7 +57,9 @@ return (
           className="bg-indigo-600 font-semibold text-sm sm:text-base px-4 py-2 rounded-md text-white border border-gray-200 dark:border-gray-700 hover:bg-indigo-800 hover:text-white active:transform active:scale-90 duration-200 flex items-center justify-center gap-1">
             <span>Submit</span>
             <span className="material-symbols-outlined">send</span>
-          </button>
+        </button>
+        {messageState === "success" && <p className="text-center text-xl">Thank you for your message! I will get back to you as soon as possible.</p>}
+        {messageState === "error" && <p className="text-center text-xl">Oops! Something went wrong, please try again later. I'm sorry for the inconvenience.</p>}
       </form>
     </div>
   );
